@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://epj47q867dev"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://d1v63d0y4oa32" path="res://Free/COCO/Orange.png" id="2_csr3a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7p2e"]
+radius = 23.0217
+
+[node name="Orange" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_csr3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b7p2e")

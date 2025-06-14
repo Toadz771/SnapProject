@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbtxcmnfum4x0"]
+
+[ext_resource type="Script" path="res://scenes/portal.gd" id="1_b8f62"]
+[ext_resource type="Texture2D" uid="uid://b6rqeluhi5vpk" path="res://Free/Dimensional_Portal.png" id="1_qmgne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e6sw"]
+atlas = ExtResource("1_qmgne")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usmiw"]
+atlas = ExtResource("1_qmgne")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an7rv"]
+atlas = ExtResource("1_qmgne")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc3tk"]
+atlas = ExtResource("1_qmgne")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyvuc"]
+atlas = ExtResource("1_qmgne")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apunc"]
+atlas = ExtResource("1_qmgne")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4av4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e6sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usmiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an7rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc3tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyvuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apunc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abh88"]
+radius = 25.0
+height = 124.0
+
+[node name="Portal" type="Area2D" groups=["portals"]]
+script = ExtResource("1_b8f62")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_q4av4")
+autoplay = "default"
+frame_progress = 0.578833
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("CapsuleShape2D_abh88")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

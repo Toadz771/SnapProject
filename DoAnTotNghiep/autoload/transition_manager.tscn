@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl02boysxxeib"]
+
+[ext_resource type="Script" path="res://autoload/transition_manager.gd" id="1_j6jop"]
+[ext_resource type="Shader" path="res://shaders/main_menu.gdshader" id="1_oemdq"]
+[ext_resource type="Texture2D" uid="uid://jp4v1rc3ii20" path="res://resources/noise_texture.tres" id="2_dho8u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufrqf"]
+resource_local_to_scene = true
+shader = ExtResource("1_oemdq")
+shader_parameter/dissolve_threshold = 0.0
+shader_parameter/pixel_size = 0.02
+shader_parameter/dissolve_color = Color(0, 0, 0, 1)
+shader_parameter/noise_texture = ExtResource("2_dho8u")
+
+[sub_resource type="Animation" id="Animation_5k3wd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DissolveRect:material:shader_parameter/dissolve_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DissolveRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mekab"]
+resource_name = "dissolve_from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DissolveRect:material:shader_parameter/dissolve_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DissolveRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vtlba"]
+resource_name = "dissolve_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DissolveRect:material:shader_parameter/dissolve_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DissolveRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bbiy"]
+_data = {
+"RESET": SubResource("Animation_5k3wd"),
+"dissolve_from_black": SubResource("Animation_mekab"),
+"dissolve_to_black": SubResource("Animation_vtlba")
+}
+
+[node name="TransitionManager" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_j6jop")
+
+[node name="DissolveRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ufrqf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6bbiy")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

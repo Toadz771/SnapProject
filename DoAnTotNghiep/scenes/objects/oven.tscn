@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://1sbsi7nt7aok"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://blqv770skq6xb" path="res://Free/COCO/Oven.png" id="2_hh0gy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neprm"]
+size = Vector2(60, 86)
+
+[node name="Oven" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_hh0gy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_neprm")

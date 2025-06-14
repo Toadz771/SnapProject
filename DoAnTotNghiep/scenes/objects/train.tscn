@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://css87c0gcosbm"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://ba06nh3b8rf4v" path="res://Free/COCO/Apple.png" id="2_i24lj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7p2e"]
+radius = 19.0263
+
+[node name="Train" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_i24lj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_b7p2e")

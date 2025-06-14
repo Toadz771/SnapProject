@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bebkmcy56o310"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://ddpa67waqjien" path="res://Free/COCO/PottedPlant.png" id="2_wcqds"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dbq0"]
+size = Vector2(36, 64)
+
+[node name="PottedPlant" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_wcqds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_4dbq0")

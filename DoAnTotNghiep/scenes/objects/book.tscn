@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://7hlqbciu0huw"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://baqljb2byvgha" path="res://Free/COCO/Book.png" id="2_hmiob"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huyv5"]
+size = Vector2(45, 30)
+
+[node name="Book" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_hmiob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_huyv5")

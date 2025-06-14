@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://ncjrk7df6neo"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://ckhucqoc5ol4u" path="res://Free/COCO/Dog.png" id="2_hb0d7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3che0"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s07ou"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqhoi"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gypoa"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qmt3"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0iyj"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4iyi"]
+atlas = ExtResource("2_hb0d7")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1aspw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3che0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s07ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqhoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gypoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qmt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0iyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4iyi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_himva"]
+size = Vector2(90, 20)
+
+[node name="Dog" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, -52)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1aspw")
+autoplay = "default"
+frame_progress = 0.892482
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_himva")

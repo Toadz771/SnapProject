@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://fluo6ac46nmb"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://ddm4158odvc73" path="res://Free/COCO/Refrigerator.png" id="2_n7704"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln3gv"]
+size = Vector2(52, 110)
+
+[node name="Refrigerator" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_n7704")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_ln3gv")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm2m416njt0k"
+path="res://.godot/imported/Burning Volcano.mp3-4dbe6f1c619ea919f4e88abf870ddf2d.mp3str"
+
+[deps]
+
+source_file="res://Free/BGM/Burning Volcano.mp3"
+dest_files=["res://.godot/imported/Burning Volcano.mp3-4dbe6f1c619ea919f4e88abf870ddf2d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

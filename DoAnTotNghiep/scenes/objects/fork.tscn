@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://be4x5mc7a82xb"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://cjcbhh64ba127" path="res://Free/COCO/SpoonAndFolk.png" id="2_ixtdp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyjpv"]
+size = Vector2(44, 30)
+
+[node name="Fork" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_ixtdp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vyjpv")

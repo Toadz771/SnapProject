@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl2lvu63mtlgl"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://cn52btu3flnur" path="res://Free/COCO/Banana.png" id="2_fnjc0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[node name="Banana" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_fnjc0")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 1)
+polygon = PackedVector2Array(-12, -8, -14, -10, -20, -10, -22, -8, -22, 4, -16, 10, 14, 10, 20, 4, 20, -16, 14, -16, 14, -12, 8, -6)

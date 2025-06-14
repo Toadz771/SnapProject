@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq71m7kahgxjt"]
+
+[ext_resource type="Script" path="res://scenes/ui/disconnectpopup.gd" id="1_c4ye0"]
+
+[node name="DisconnectPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c4ye0")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="PopupCenter" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupPanel" type="Panel" parent="PopupCenter"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+
+[node name="Message" type="Label" parent="PopupCenter/PopupPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -39.0
+offset_right = 118.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Connection to the server lost! Please try again with a better internet condition!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ReconnectButton" type="Button" parent="PopupCenter/PopupPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.5
+offset_top = -31.0
+offset_right = 44.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reconnect"

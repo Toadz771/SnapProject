@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciuuhrmjc4hex"]
+
+[ext_resource type="Texture2D" uid="uid://dbmtwiq7cogou" path="res://Free/COCO/Clock.png" id="1_3srw2"]
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_f7emh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4b75"]
+radius = 31.0161
+
+[node name="Clock" type="RigidBody2D" groups=["pickable"]]
+script = ExtResource("1_f7emh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_3srw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p4b75")

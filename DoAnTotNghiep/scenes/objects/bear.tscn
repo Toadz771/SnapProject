@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1igdjua1o68i"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://nd5g71rtilt8" path="res://Free/COCO/Bear.png" id="2_ihdup"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbf3u"]
+size = Vector2(162, 105)
+
+[node name="Bear" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_ihdup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 22.5)
+shape = SubResource("RectangleShape2D_hbf3u")

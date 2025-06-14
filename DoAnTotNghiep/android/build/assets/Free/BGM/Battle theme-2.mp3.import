@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci8xwtesueq74"
+path="res://.godot/imported/Battle theme-2.mp3-28c2f42c134101ca9bedb98b36eda1a8.mp3str"
+
+[deps]
+
+source_file="res://Free/BGM/Battle theme-2.mp3"
+dest_files=["res://.godot/imported/Battle theme-2.mp3-28c2f42c134101ca9bedb98b36eda1a8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

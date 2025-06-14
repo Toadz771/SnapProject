@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://chisoc2sft87a"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://popb2p4as0hw" path="res://Free/COCO/Pizza.png" id="2_4ged1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[node name="Pizza" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_4ged1")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 1)
+polygon = PackedVector2Array(14, -22, 16, -20, 16, -12, 2, 16, 0, 18, -2, 18, -4, 16, -18, -12, -18, -20, -16, -22)

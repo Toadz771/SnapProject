@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr41u6esrwj0"
+path="res://.godot/imported/Enchanted forest.mp3-8f6f2135dc8f16176df80ce58250f055.mp3str"
+
+[deps]
+
+source_file="res://Free/BGM/Enchanted forest.mp3"
+dest_files=["res://.godot/imported/Enchanted forest.mp3-8f6f2135dc8f16176df80ce58250f055.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://cu6jvnda0r2pc"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://o1nkw5p8yo5p" path="res://Free/COCO/Person.png" id="2_8hft1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e77s"]
+atlas = ExtResource("2_8hft1")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7b2y"]
+atlas = ExtResource("2_8hft1")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5n3v"]
+atlas = ExtResource("2_8hft1")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy6hy"]
+atlas = ExtResource("2_8hft1")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y36dp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e77s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7b2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5n3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy6hy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xod2y"]
+size = Vector2(55, 77)
+
+[node name="Person" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_y36dp")
+autoplay = "default"
+frame_progress = 0.507721
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -3.5)
+shape = SubResource("RectangleShape2D_xod2y")

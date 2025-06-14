@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcmbhjjw6bu3l"]
+
+[ext_resource type="Script" path="res://scenes/objects/generated_object.gd" id="1_hb736"]
+[ext_resource type="Texture2D" uid="uid://bnbwptix6sen3" path="res://Free/COCO/Truck.png" id="2_14jrw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5bjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ookqh"]
+size = Vector2(208, 100)
+
+[node name="Truck" type="RigidBody2D" groups=["pickable"]]
+physics_material_override = SubResource("PhysicsMaterial_5bjrf")
+can_sleep = false
+script = ExtResource("1_hb736")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_14jrw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, -1)
+shape = SubResource("RectangleShape2D_ookqh")
